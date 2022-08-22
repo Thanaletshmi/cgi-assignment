@@ -1,0 +1,43 @@
+.app-body {
+  padding: 32px 32px;
+}
+
+table {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.mat-header-row {
+  height: 70px;
+}
+
+.mat-row {
+  height: 170px;
+}
+
+th.mat-header-cell {
+  font-size: 17px;
+  font-weight: 500;
+  color: black;
+}
+.mat-cell {
+  font-size: 15px;
+}
+
+.mat-radio-group .mat-radio-button {
+  padding-right: 10px;
+  padding-top: 20px;
+}
+
+.mat-row:nth-child(2n + 1) {
+  background-color: #b8e0c0;
+}
+.mat-row:not(:nth-child(2n + 1)) {
+  background-color: #eaf1eb;
+}
+
+.log-label-style {
+  font-size: 20px;
+  width: 20%;
+  border: 3px solid orangered;
+}

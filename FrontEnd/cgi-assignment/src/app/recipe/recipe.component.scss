@@ -1,0 +1,70 @@
+.view-recipe-section {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.select-dropdown {
+  margin-bottom: 2rem;
+}
+
+.ng-select {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.row {
+  margin-top: 5rem;
+  display: flex;
+
+  .all-recipe-section,
+  .filter-recipe-section {
+    margin-bottom: 3rem;
+  }
+  .all-recipe-section {
+    float: left;
+    padding-left: 20rem;
+    width: 40%;
+  }
+  .filter-recipe-section {
+    float: right;
+    width: 40%;
+  }
+}
+
+.error-message {
+  float: right;
+  width: 42%;
+  font-weight: 500;
+  border: 6px solid red;
+  color: black;
+  text-align: start;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  width: 150px;
+  height: 100px;
+}
+
+.mat-header-row {
+  height: 70px;
+}
+
+.mat-row {
+  height: 100px;
+}
+th.mat-header-cell {
+  font-size: 17px;
+  font-weight: 500;
+  color: black;
+}
+.mat-cell {
+  font-size: 15px;
+}
+
+.mat-raised-button {
+  padding: 8px 10px 8px;
+}

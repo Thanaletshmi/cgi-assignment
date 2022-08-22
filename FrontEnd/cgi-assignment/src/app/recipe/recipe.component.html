@@ -1,0 +1,73 @@
+<!-- Start of user interaction area-->
+<div class="row">
+  <!-- All Reciepe Button -->
+  <div class="all-recipe-section">
+    <button mat-raised-button color="accent" (click)="viewRecipes()">
+      VIEW ALL RECIPES
+    </button>
+  </div>
+  <!-- Multiselect dropdown and Filter Reciepe Button -->
+  <div class="filter-recipe-section">
+    <ng-select
+      #mySelected
+      [items]="ingredients"
+      (change)="selectedIngredients($event)"
+      bindLabel="name"
+      placeholder="Select Category"
+      appendTo="body"
+      [multiple]="true"
+      [(ngModel)]="selected"
+    >
+    </ng-select>
+
+    <button mat-raised-button color="accent" (click)="filterRecipes()">
+      FILTER RECIPES
+    </button>
+  </div>
+</div>
+<!-- End of user interaction area-->
+
+<!-- Error message when no results in filter -->
+<div><h2 class="error-message" *ngIf="error && !viewEnabled">{{ error.error }}</h2></div>
+
+<!-- Table showing Recipe results -->
+<div class="recipe-table">
+  <table
+    *ngIf="viewEnabled"
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
+    <!-- Href Column -->
+    <ng-container matColumnDef="href">
+      <th mat-header-cell *matHeaderCellDef>Href</th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="/your-link">{{ element.href }} </a>
+      </td>
+    </ng-container>
+
+    <!-- Ingredients Column -->
+    <ng-container matColumnDef="ingredients">
+      <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+      <td mat-cell *matCellDef="let element">{{ element.ingredients }}</td>
+    </ng-container>
+
+    <!-- Thumbnail Column -->
+    <ng-container matColumnDef="thumbnail">
+      <th mat-header-cell *matHeaderCellDef>Image</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.thumbnail" />
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
