@@ -25,23 +25,22 @@ public class JsonFileReader {
     private final static Logger LOGGER = LoggerFactory.getLogger(JsonFileReader.class);
     @Autowired
     private AppConfig appConfig;
-
+    @Autowired
+    private ObjectMapper objectMapper;
     public List<RecipeInfo> readJsonFile() throws FileReaderException {
-        Object object = null;
         try {
-            object = new JSONParser().parse(new FileReader(appConfig.getJsonFilePath()));
+            Object object = new JSONParser().parse(new FileReader(appConfig.getJsonFilePath()));
             JSONArray jsonObject = (JSONArray) object;
             String jsonString = jsonObject.toJSONString();
-            ObjectMapper objectMapper = new ObjectMapper();
             CollectionType listType =
                     objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, RecipeInfo.class);
             return objectMapper.readValue(jsonString, listType);
         } catch (IOException e) {
             LOGGER.error("IOException : {}", e.getMessage());
-            throw new FileReaderException("Exception occurred while reading the json file");
+            throw new FileReaderException("Server Error: Please try again after sometime!");
         } catch (ParseException e) {
             LOGGER.error("ParsingException : {}", e.getMessage());
-            throw new FileReaderException("Exception occurred while parsing the json file");
+            throw new FileReaderException("Server Error: Please try again after sometime!");
         }
     }
 

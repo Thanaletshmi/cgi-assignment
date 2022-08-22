@@ -41,8 +41,6 @@ public class RecipeServiceImpl implements RecipeService {
 		validator.validateInputIngredients(ingredients);
 		List<RecipeInfo> recipeInfoList = jsonFileReader.readJsonFile();
 
-		//List<String> list = Arrays.asList("ham", "onions");
-		//List<RecipientInfo> actual = recipeInfoList;
 		List<RecipeInfo> filteredRecipeInfo = new ArrayList<>();
 		for (final String inputIngredient: ingredients) {
 			filteredRecipeInfo = recipeInfoList.stream()
@@ -52,38 +50,12 @@ public class RecipeServiceImpl implements RecipeService {
 					.collect(Collectors.toList());
 			recipeInfoList = filteredRecipeInfo;
 		}
-		/*List<String> recipeList = recipeInfoList.stream()
-				.filter(recipe -> recipe.getIngredients().stream()
-						.anyMatch(i -> ingredients.stream()
-								.anyMatch(ing -> ing.equals(i.getIngredient()))))
-				.map(RecipeInfo::getTitle).sorted()
-				.collect(Collectors.toList());*/
 
 		if(filteredRecipeInfo.isEmpty()) {
 			LOGGER.error("No recipe found for ingredients - {}", ingredients);
 			throw new DataNotFoundException("No recipe found for given input ingredient(s)");
 		}
-
-		return filteredRecipeInfo;//recipeList;
-		/*return recipeInfoList.stream()
-				.filter(recipeInfo -> recipeInfo.getIngredients().stream()
-						.filter(ing ->recipeInfo.getIngredients().contains(ingredients))
-				.map(RecipeInfo::getTitle).sorted()
-				.collect(Collectors.toList());*/
-		 /*.filter(pr -> pr.getProducts().stream().anyMatch(s -> "Active".equals(s.getType())))
-				.collect(Collectors.toList());*/
-
-
-		/*return recipeInfoList.stream()
-				.filter(recipe -> recipe.getIngredients().stream()
-						.anyMatch(i -> ingredients.stream()
-						.anyMatch(ing -> ing.equals(i.getIngredient()))))
-				.map(RecipeInfo::getTitle).sorted()
-				.collect(Collectors.toList());*/
-		/*return recipeInfoList.stream()
-				.filter(recipe -> recipe.getIngredients().containsAll(ingredients))
-				.map(RecipeInfo::getTitle).sorted()
-				.collect(Collectors.toList());*/
+		return filteredRecipeInfo;
 	}
 
 }

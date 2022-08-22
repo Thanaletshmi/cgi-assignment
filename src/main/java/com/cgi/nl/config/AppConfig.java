@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Data
 public class AppConfig {
-
     @Value("${json.file.path}")
     private String jsonFilePath;
 

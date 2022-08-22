@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Recipe and LogAnalyzer boot application
  *
  */
+
 @SpringBootApplication
 public class Application {
 

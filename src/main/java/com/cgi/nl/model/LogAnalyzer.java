@@ -1,6 +1,6 @@
 package com.cgi.nl.model;
 
-import com.cgi.nl.constants.LogLevel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class LogAnalyzer {
 
+    @ApiModelProperty(notes = "Log Type", example = "ERROR")
     private String logType;
 
+    @ApiModelProperty(notes = "List of Log Information")
     private List<LogData> logDataList;
 }

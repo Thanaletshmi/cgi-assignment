@@ -1,5 +1,6 @@
 package com.cgi.nl.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,9 +12,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LogData {
 
+    @ApiModelProperty(notes = "Log Name", example = "java.lang.NullPointerException")
     private String logName;
 
-    private String logDescription;
+    @ApiModelProperty(notes = "Log Message/Description", example = "Exception in com.fluentgrid.repapp.web.rest.EventsResource.search() with cause = null java.lang.NullPointerException: null")
+    private String logMessage;
 
-    private String count;
+    @ApiModelProperty(notes = "Number of occurrences", example = "8")
+    private int logCount;
 }

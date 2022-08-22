@@ -10,26 +10,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = {InvalidInputException.class})
     public ResponseEntity<Object> handleInvalidInputException(final InvalidInputException ex) {
-        //LOGGER.error("Invalid Input Exception: ",ex.getMessage());
         return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {DataNotFoundException.class})
     public ResponseEntity<Object> handleDataNotFoundException(final DataNotFoundException ex) {
-        //LOGGER.error("Invalid Input Exception: ",ex.getMessage());
         return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
-
     @ExceptionHandler(value = {FileReaderException.class})
     public ResponseEntity<Object> handleFileException(final FileReaderException ex) {
-        //LOGGER.error("Invalid Input Exception: ",ex.getMessage());
         return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-
-   /* @ExceptionHandler(value = { Unauthorized.class })
-    public ResponseEntity<Object> handleUnauthorizedException(Unauthorized ex) {
-        LOGGER.error("Unauthorized Exception: ",ex.getMessage());
-        return new ResponseEntity<Object>(ex.getMessage(),HttpStatus.BAD_REQUEST);
-    }*/
 }
