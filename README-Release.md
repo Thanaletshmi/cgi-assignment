@@ -94,6 +94,9 @@ One REST endpoint will read the file "logFile-2018-09-10.log" [src/main/resource
 
 Unit test cases are written using Mockito
 
+##### Test Coverage[Backend] screenshot
+ ``` Test cgi-assignment\src\test\TestCoverageReport.PNG ```
+
 ## Authors
 
 * **Thanaletshmi S K** - *Initial work*
